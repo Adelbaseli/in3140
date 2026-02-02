@@ -1,0 +1,13 @@
+# Exclude folders
+ros_bridge_sandbox/
+bridge/
+crust/
+pid/log/
+pid/build/
+pid/install
+
+
+# Exclude SIF files
+in3140_ros2.sif
+pid/in3140_ros2.sif
+

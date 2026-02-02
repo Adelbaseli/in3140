@@ -1,0 +1,33 @@
+Bootstrap: localimage
+From: ros_bridge_sandbox
+
+%labels
+    Author Adel
+    Description ROS1 container from sandbox with prebuilt bridge
+
+%environment
+    source /opt/ros/noetic/setup.bash
+
+    if [ -f /opt/bridge/devel/setup.bash ]; then
+        source /opt/bridge/devel/setup.bash
+    fi
+
+    export ROS_WORKSPACE=/opt/bridge
+
+%files
+    bridge.tar.gz /opt/bridge.tar.gz
+
+%post -c /bin/bash
+    echo "=== Installing prebuilt bridge workspace ==="
+
+    mkdir -p /opt/bridge
+    cd /opt/bridge
+
+    tar -xzf /opt/bridge.tar.gz
+    rm /opt/bridge.tar.gz
+
+    echo "=== Bridge extracted (no rebuild, symlinks preserved) ==="
+
+%runscript
+    exec "$@"
+

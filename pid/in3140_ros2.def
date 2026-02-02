@@ -1,0 +1,60 @@
+Bootstrap: docker
+From: ros:humble-ros-base-jammy
+
+%labels
+    Author Adel Baselizadeh
+    Version 0.4
+
+%environment
+    # Only set basic environment variables
+    export LANG=C.UTF-8
+    export LC_ALL=C.UTF-8
+    export PYTHONPATH=$PYTHONPATH:/workspace/install/lib/python3.10/site-packages
+    export ROS_DISTRO=humble
+    # NO sourcing of ROS or setup.sh
+
+%post
+    # Avoid interactive prompts
+    export DEBIAN_FRONTEND=noninteractive
+
+    # Basic tools
+    apt-get update && apt-get install -y \
+        locales \
+        curl \
+        gnupg2 \
+        lsb-release \
+        sudo \
+        vim \
+        git \
+        wget \
+        python3-pip \
+        build-essential \
+        tzdata \
+        && rm -rf /var/lib/apt/lists/*
+
+    # Set timezone to UTC
+    ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime
+    dpkg-reconfigure -f noninteractive tzdata
+
+    # Explicit ROS 2 dependencies for PID package
+    apt-get update && apt-get install -y \
+        ros-humble-rqt \
+        ros-humble-rqt-common-plugins \
+        ros-humble-gazebo-ros-pkgs \
+        ros-humble-gazebo-msgs \
+        ros-humble-control-msgs \
+        ros-humble-sensor-msgs \
+        ros-humble-std-msgs \
+        && rm -rf /var/lib/apt/lists/*
+
+    # Upgrade Python packages for colcon and ROS 2
+    python3 -m pip install --upgrade pip setuptools importlib-metadata colcon-common-extensions
+
+    # Initialize rosdep
+    rosdep init || true
+    rosdep update
+
+%runscript
+    # NO sourcing at all
+    exec bash
+

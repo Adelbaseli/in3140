@@ -1,0 +1,117 @@
+BootStrap: docker
+From: ubuntu:20.04
+
+%labels
+    Author Adel Baselizadeh
+    Version 1.3
+    Description ROS1 Noetic + ROS2 Foxy bridge container (with full ros_control + trajectory controllers)
+
+%environment
+    export LANG=C.UTF-8
+    export LC_ALL=C.UTF-8
+
+%post
+
+echo "Setting non-interactive frontend for apt..."
+export DEBIAN_FRONTEND=noninteractive
+
+echo "Updating system..."
+apt update && apt upgrade -y
+
+echo "Installing base dependencies including tzdata..."
+apt install -y \
+    build-essential \
+    curl \
+    gnupg2 \
+    lsb-release \
+    wget \
+    git \
+    sudo \
+    vim \
+    software-properties-common \
+    tzdata
+
+echo "Setting timezone to UTC..."
+ln -fs /usr/share/zoneinfo/UTC /etc/localtime
+dpkg-reconfigure --frontend noninteractive tzdata
+
+############################
+# Install ROS1 Noetic
+############################
+
+echo "Adding ROS1 repository..."
+sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros1.list'
+
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
+
+apt update
+
+echo "Installing ROS1 Noetic..."
+apt install -y \
+    ros-noetic-desktop-full \
+    python3-rosdep \
+    python3-rosinstall \
+    python3-rosinstall-generator \
+    python3-wstool \
+    python3-catkin-tools \
+    ros-noetic-ros-control \
+    ros-noetic-ros-controllers \
+    ros-noetic-effort-controllers \
+    ros-noetic-position-controllers \
+    ros-noetic-velocity-controllers \
+    ros-noetic-joint-state-controller \
+    ros-noetic-joint-trajectory-controller \
+    ros-noetic-controller-manager \
+    ros-noetic-transmission-interface \
+    ros-noetic-hardware-interface \
+    ros-noetic-joint-limits-interface \
+    ros-noetic-control-toolbox \
+    ros-noetic-realtime-tools \
+    ros-noetic-gazebo-ros-control \
+    ros-noetic-gazebo-ros-pkgs \
+    ros-noetic-gazebo-plugins \
+    ros-noetic-actionlib \
+    ros-noetic-actionlib-msgs \
+    ros-noetic-control-msgs \
+    ros-noetic-trajectory-msgs \
+    ros-noetic-rosparam-shortcuts \
+    ros-noetic-xacro
+
+############################
+# Initialize rosdep
+############################
+rosdep init
+rosdep update
+
+############################
+# Install ROS2 Foxy
+############################
+
+echo "Adding ROS2 repository..."
+curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
+    -o /usr/share/keyrings/ros-archive-keyring.gpg
+
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" \
+    > /etc/apt/sources.list.d/ros2.list
+
+apt update
+
+echo "Installing ROS2 Foxy..."
+apt install -y \
+    ros-foxy-desktop \
+    python3-colcon-common-extensions
+
+############################
+# ros1_bridge dependencies
+############################
+apt install -y python3-vcstool
+
+############################
+# Clean
+############################
+apt clean
+rm -rf /var/lib/apt/lists/*
+
+%runscript
+echo "ROS1 Noetic + ROS2 Foxy bridge container ready."
+exec bash --norc

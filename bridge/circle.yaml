@@ -1,0 +1,131 @@
+topics:
+  - topic: /clock
+    type: rosgraph_msgs/msg/Clock
+    queue_size: 1
+
+  - topic: /crustcrawler/joint1_controller/command
+    type: std_msgs/msg/Float64
+    queue_size: 1
+  - topic: /crustcrawler/joint1_controller/state
+    type: control_msgs/msg/JointControllerState
+    queue_size: 1
+  - topic: /crustcrawler/joint1_controller/pid/parameter_descriptions
+    type: dynamic_reconfigure/ConfigDescription
+    queue_size: 1
+  - topic: /crustcrawler/joint1_controller/pid/parameter_updates
+    type: dynamic_reconfigure/Config
+    queue_size: 1
+
+  - topic: /crustcrawler/joint2_controller/command
+    type: std_msgs/msg/Float64
+    queue_size: 1
+  - topic: /crustcrawler/joint2_controller/state
+    type: control_msgs/msg/JointControllerState
+    queue_size: 1
+  - topic: /crustcrawler/joint2_controller/pid/parameter_descriptions
+    type: dynamic_reconfigure/ConfigDescription
+    queue_size: 1
+  - topic: /crustcrawler/joint2_controller/pid/parameter_updates
+    type: dynamic_reconfigure/Config
+    queue_size: 1
+
+  - topic: /crustcrawler/joint3_controller/command
+    type: std_msgs/msg/Float64
+    queue_size: 1
+  - topic: /crustcrawler/joint3_controller/state
+    type: control_msgs/msg/JointControllerState
+    queue_size: 1
+  - topic: /crustcrawler/joint3_controller/pid/parameter_descriptions
+    type: dynamic_reconfigure/ConfigDescription
+    queue_size: 1
+  - topic: /crustcrawler/joint3_controller/pid/parameter_updates
+    type: dynamic_reconfigure/Config
+    queue_size: 1
+
+  - topic: /crustcrawler/joint4_controller/command
+    type: std_msgs/msg/Float64
+    queue_size: 1
+  - topic: /crustcrawler/joint4_controller/state
+    type: control_msgs/msg/JointControllerState
+    queue_size: 1
+  - topic: /crustcrawler/joint4_controller/pid/parameter_descriptions
+    type: dynamic_reconfigure/ConfigDescription
+    queue_size: 1
+  - topic: /crustcrawler/joint4_controller/pid/parameter_updates
+    type: dynamic_reconfigure/Config
+    queue_size: 1
+
+  - topic: /crustcrawler/joint5_controller/command
+    type: std_msgs/msg/Float64
+    queue_size: 1
+  - topic: /crustcrawler/joint5_controller/state
+    type: control_msgs/msg/JointControllerState
+    queue_size: 1
+  - topic: /crustcrawler/joint5_controller/pid/parameter_descriptions
+    type: dynamic_reconfigure/ConfigDescription
+    queue_size: 1
+  - topic: /crustcrawler/joint5_controller/pid/parameter_updates
+    type: dynamic_reconfigure/Config
+    queue_size: 1
+
+  - topic: /crustcrawler/joint6_controller/command
+    type: std_msgs/msg/Float64
+    queue_size: 1
+  - topic: /crustcrawler/joint6_controller/state
+    type: control_msgs/msg/JointControllerState
+    queue_size: 1
+  - topic: /crustcrawler/joint6_controller/pid/parameter_descriptions
+    type: dynamic_reconfigure/ConfigDescription
+    queue_size: 1
+  - topic: /crustcrawler/joint6_controller/pid/parameter_updates
+    type: dynamic_reconfigure/Config
+    queue_size: 1
+
+  - topic: /crustcrawler/joint_states
+    type: sensor_msgs/msg/JointState
+    queue_size: 1
+
+  - topic: /gazebo/link_states
+    type: gazebo_msgs/msg/LinkStates
+    queue_size: 1
+  - topic: /gazebo/model_states
+    type: gazebo_msgs/msg/ModelStates
+    queue_size: 1
+  - topic: /gazebo/parameter_descriptions
+    type: dynamic_reconfigure/ConfigDescription
+    queue_size: 1
+  - topic: /gazebo/parameter_updates
+    type: dynamic_reconfigure/Config
+    queue_size: 1
+  - topic: /gazebo/performance_metrics
+    type: gazebo_msgs/msg/PerformanceMetrics
+    queue_size: 1
+  - topic: /gazebo/set_link_state
+    type: gazebo_msgs/msg/LinkState
+    queue_size: 1
+  - topic: /gazebo/set_model_state
+    type: gazebo_msgs/msg/ModelState
+    queue_size: 1
+
+  - topic: /rosout
+    type: rcl_interfaces/msg/Log
+    queue_size: 1
+  - topic: /rosout_agg
+    type: rcl_interfaces/msg/Log
+    queue_size: 1
+
+  - topic: /tf
+    type: tf2_msgs/msg/TFMessage
+    queue_size: 1
+  - topic: /tf_static
+    type: tf2_msgs/msg/TFMessage
+    queue_size: 1
+    qos:
+      history: keep_all
+      durability: transient_local
+
+actions:
+  - action: /crustcrawler/controller/follow_joint_trajectory
+    type: control_msgs/action/FollowJointTrajectory
+    direction: bidirectional
+    queue_size: 1

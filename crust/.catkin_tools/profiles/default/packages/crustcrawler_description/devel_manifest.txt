@@ -1,0 +1,4 @@
+crustcrawler_simulation/crustcrawler_description
+/home/adel/IN3140/crust/devel/.private/crustcrawler_description/lib/pkgconfig/crustcrawler_description.pc /home/adel/IN3140/crust/devel/lib/pkgconfig/crustcrawler_description.pc
+/home/adel/IN3140/crust/devel/.private/crustcrawler_description/share/crustcrawler_description/cmake/crustcrawler_descriptionConfig-version.cmake /home/adel/IN3140/crust/devel/share/crustcrawler_description/cmake/crustcrawler_descriptionConfig-version.cmake
+/home/adel/IN3140/crust/devel/.private/crustcrawler_description/share/crustcrawler_description/cmake/crustcrawler_descriptionConfig.cmake /home/adel/IN3140/crust/devel/share/crustcrawler_description/cmake/crustcrawler_descriptionConfig.cmake

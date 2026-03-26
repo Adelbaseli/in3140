@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+	<name>crustcrawler_pen</name>
+	<version>0.1.0</version>
+	<description>Metapackage for pen addition</description>
+
+	<maintainer email="jorgehn@student.matnat.uio.no">Jorgen Nordmoen</maintainer>
+	<license>MIT</license>
+	<url type="website">https://github.uio.no/INF3480/crustcrawler_pen</url>
+	<author email="jorgehn@student.matnat.uio.no">Jorgen Nordmoen</author>
+
+	<buildtool_depend>catkin</buildtool_depend>
+	<exec_depend>crustcrawler_pen_description</exec_depend>>
+	<exec_depend>crustcrawler_pen_gazebo</exec_depend>>
+
+	<export>
+		<metapackage />
+	</export>
+</package>

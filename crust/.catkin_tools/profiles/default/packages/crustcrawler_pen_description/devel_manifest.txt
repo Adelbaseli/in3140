@@ -1,0 +1,4 @@
+crustcrawler_pen/crustcrawler_pen_description
+/home/adel/IN3140/crust/devel/.private/crustcrawler_pen_description/lib/pkgconfig/crustcrawler_pen_description.pc /home/adel/IN3140/crust/devel/lib/pkgconfig/crustcrawler_pen_description.pc
+/home/adel/IN3140/crust/devel/.private/crustcrawler_pen_description/share/crustcrawler_pen_description/cmake/crustcrawler_pen_descriptionConfig.cmake /home/adel/IN3140/crust/devel/share/crustcrawler_pen_description/cmake/crustcrawler_pen_descriptionConfig.cmake
+/home/adel/IN3140/crust/devel/.private/crustcrawler_pen_description/share/crustcrawler_pen_description/cmake/crustcrawler_pen_descriptionConfig-version.cmake /home/adel/IN3140/crust/devel/share/crustcrawler_pen_description/cmake/crustcrawler_pen_descriptionConfig-version.cmake

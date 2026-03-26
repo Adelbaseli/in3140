@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package format="2">
+	<name>pid_assignment</name>
+	<version>0.1.0</version>
+	<description>PID assignment INF3480</description>
+
+	<maintainer email="jorgehn@student.matnat.uio.no">Jorgen Nordmoen</maintainer>
+	<license>MIT</license>
+	<url type="website">https://github.uio.no/INF3480/crustcrawler_pen</url>
+	<author email="jorgehn@student.matnat.uio.no">Jorgen Nordmoen</author>
+
+	<!-- All ROS packages must depend on Catkin: -->
+	<buildtool_depend>catkin</buildtool_depend>
+	<!-- Since we have Python code we must have: -->
+	<depend>rospy</depend>
+	<!-- We depend on the gazebo package to enable us to include launch
+	     files to start Gazebo with Crustcrawler: -->
+	<depend>crustcrawler_pen_gazebo</depend>
+	<!-- Needed for online and GUI parameter tuning: -->
+	<depend>dynamic_reconfigure</depend>
+	<!-- Needed to get position and velocity of joint from Gazebo: -->
+	<depend>sensor_msgs</depend>
+	<!-- Needed for messages to publish internal joint state: -->
+	<depend>control_msgs</depend>
+	<!-- Needed for messages to receive set-point: -->
+	<depend>std_msgs</depend>
+	<!-- Needed for RQT gui -->
+	<depend>rqt_gui</depend>
+	<!-- Needed for secret Gazebo business -->
+	<depend>gazebo_msgs</depend>
+
+	<export>
+	</export>
+</package>

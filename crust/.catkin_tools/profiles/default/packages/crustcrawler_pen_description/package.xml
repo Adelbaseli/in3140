@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+	<name>crustcrawler_pen_description</name>
+	<version>0.1.0</version>
+	<description>URDF description for Crustcrawler with pen addition</description>
+
+	<maintainer email="jorgehn@student.matnat.uio.no">Jorgen Nordmoen</maintainer>
+	<license>MIT</license>
+	<url type="website">https://github.uio.no/INF3480/crustcrawler_pen</url>
+	<author email="jorgehn@student.matnat.uio.no">Jorgen Nordmoen</author>
+
+	<buildtool_depend>catkin</buildtool_depend>
+	<depend>crustcrawler_description</depend>
+
+	<export>
+	</export>
+</package>

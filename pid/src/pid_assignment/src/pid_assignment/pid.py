@@ -9,9 +9,9 @@ import math
 class PID:
     """General PID class with P, PD, PID, PIDD options."""
     def __init__(self, logger=None):
-        self.p = 100.0
+        self.p = 10.0
         self.i = 0.0
-        self.d = 10.0
+        self.d = 5.0
         self.c = 0.0
         self.error = 0.0
         self.integral = 0.0
@@ -64,15 +64,18 @@ class PID:
 
 
 class MultiJointPIDNode(Node):
-    """ROS2 Node controlling all Crustcrawler joints with PID."""
-    def __init__(self, joints=None, mode='P'):
+    """ROS2 Node controlling all Crustcrawler joints with PID, with fixed joints support."""
+    def __init__(self, joints=None, mode='P', fixed_joints=None):
         super().__init__('multi_joint_pid')
         self.joints = joints or [
-            'joint1', 'joint2', 'joint3', 'joint4', 'joint5', 'joint6'
+            'joint1', 'joint2', 'joint3'
         ]
         self.mode = mode
 
-        # Initialize PID controllers for each joint
+        # Joints to freeze
+        self.fixed_joints = fixed_joints or ['joint1', 'joint3']
+
+        # Initialize PID controllers
         self.pid_controllers = {j: PID(self.get_logger()) for j in self.joints}
 
         # State storage
@@ -112,7 +115,9 @@ class MultiJointPIDNode(Node):
                 self.current_velocities[j] = msg.velocity[index]
 
     def setpoint_callback(self, msg, joint):
-        self.setpoints[joint] = msg.data
+        # Ignore setpoints for fixed joints
+        if joint not in self.fixed_joints:
+            self.setpoints[joint] = msg.data
 
     def update(self):
         now = self.get_clock().now()
@@ -122,8 +127,11 @@ class MultiJointPIDNode(Node):
         self._last_time = now
 
         for j in self.joints:
+            # If joint is fixed, force desired position to 0
+            desired = 0.0 if j in self.fixed_joints else self.setpoints[j]
+
             effort = self.pid_controllers[j](
-                self.setpoints[j],
+                desired,
                 self.current_positions[j],
                 self.current_velocities[j],
                 dt,
@@ -135,10 +143,10 @@ class MultiJointPIDNode(Node):
             msg.data = effort
             self.publishers[j].publish(msg)
 
-            # Publish state
+            # Publish controller state
             state_msg = JointControllerState()
             state_msg.header.stamp = self.get_clock().now().to_msg()
-            state_msg.set_point = self.setpoints[j]
+            state_msg.set_point = desired
             state_msg.process_value = self.current_positions[j]
             state_msg.process_value_dot = self.current_velocities[j]
             state_msg.command = effort
@@ -151,7 +159,7 @@ class MultiJointPIDNode(Node):
 
 def main():
     rclpy.init()
-    node = MultiJointPIDNode(mode='P')  # Change mode to 'PD', 'PID', 'PIDD' as needed
+    node = MultiJointPIDNode(mode='PD', fixed_joints=['joint1', 'joint3'])
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
@@ -159,4 +167,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

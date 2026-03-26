@@ -30,6 +30,8 @@ From: ros:humble-ros-base-jammy
         python3-pip \
         build-essential \
         tzdata \
+        zip \
+        unzip \
         && rm -rf /var/lib/apt/lists/*
 
     # Set timezone to UTC

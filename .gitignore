@@ -1,13 +1,32 @@
 # Exclude folders
-ros_bridge_sandbox/
-bridge/
-crust/
+action_bridge/ros-humble-ros1-bridge-builder/ros1_ros2_bridge_sandbox/
+/action_bridge/ros-humble-ros1-bridge-builder/ros-humble-ros1-bridge/log/
+/action_bridge/ros-humble-ros1-bridge-builder/ros-humble-ros1-bridge/build/
+/action_bridge/ros-humble-ros1-bridge-builder/ros-humble-ros1-bridge/install/
+
+bridge/build/
+bridge/install/
+bridge/log/
+
+circle/build/
+circle/devel/
+
+circle_ros2/build/
+circle_ros2/install/
+circle_ros2/log/
+
+crust/devel/
+crust/build/
+
 pid/log/
 pid/build/
-pid/install
+pid/install/
 
 
 # Exclude SIF files
+circle.sif
 in3140_ros2.sif
+ros_bridge_sandbox.sif
 pid/in3140_ros2.sif
+pid/in3140_ros2_first.sif
 

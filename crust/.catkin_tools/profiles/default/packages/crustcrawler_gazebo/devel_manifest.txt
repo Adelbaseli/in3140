@@ -1,0 +1,4 @@
+crustcrawler_simulation/crustcrawler_gazebo
+/home/adel/IN3140/crust/devel/.private/crustcrawler_gazebo/lib/pkgconfig/crustcrawler_gazebo.pc /home/adel/IN3140/crust/devel/lib/pkgconfig/crustcrawler_gazebo.pc
+/home/adel/IN3140/crust/devel/.private/crustcrawler_gazebo/share/crustcrawler_gazebo/cmake/crustcrawler_gazeboConfig-version.cmake /home/adel/IN3140/crust/devel/share/crustcrawler_gazebo/cmake/crustcrawler_gazeboConfig-version.cmake
+/home/adel/IN3140/crust/devel/.private/crustcrawler_gazebo/share/crustcrawler_gazebo/cmake/crustcrawler_gazeboConfig.cmake /home/adel/IN3140/crust/devel/share/crustcrawler_gazebo/cmake/crustcrawler_gazeboConfig.cmake

@@ -1,0 +1,11 @@
+pid_assignment
+/home/adel/IN3140/crust/devel/.private/pid_assignment/lib/pkgconfig/pid_assignment.pc /home/adel/IN3140/crust/devel/lib/pkgconfig/pid_assignment.pc
+/home/adel/IN3140/crust/devel/.private/pid_assignment/lib/python3/dist-packages/pid_assignment/__init__.py /home/adel/IN3140/crust/devel/lib/python3/dist-packages/pid_assignment/__init__.py
+/home/adel/IN3140/crust/devel/.private/pid_assignment/lib/python3/dist-packages/pid_assignment/cfg/__init__.py /home/adel/IN3140/crust/devel/lib/python3/dist-packages/pid_assignment/cfg/__init__.py
+/home/adel/IN3140/crust/devel/.private/pid_assignment/lib/python3/dist-packages/pid_assignment/cfg/PidConfig.py /home/adel/IN3140/crust/devel/lib/python3/dist-packages/pid_assignment/cfg/PidConfig.py
+/home/adel/IN3140/crust/devel/.private/pid_assignment/include/pid_assignment/PidConfig.h /home/adel/IN3140/crust/devel/include/pid_assignment/PidConfig.h
+/home/adel/IN3140/crust/devel/.private/pid_assignment/share/pid_assignment/cmake/pid_assignmentConfig-version.cmake /home/adel/IN3140/crust/devel/share/pid_assignment/cmake/pid_assignmentConfig-version.cmake
+/home/adel/IN3140/crust/devel/.private/pid_assignment/share/pid_assignment/cmake/pid_assignmentConfig.cmake /home/adel/IN3140/crust/devel/share/pid_assignment/cmake/pid_assignmentConfig.cmake
+/home/adel/IN3140/crust/devel/.private/pid_assignment/share/pid_assignment/docs/PidConfig.wikidoc /home/adel/IN3140/crust/devel/share/pid_assignment/docs/PidConfig.wikidoc
+/home/adel/IN3140/crust/devel/.private/pid_assignment/share/pid_assignment/docs/PidConfig.dox /home/adel/IN3140/crust/devel/share/pid_assignment/docs/PidConfig.dox
+/home/adel/IN3140/crust/devel/.private/pid_assignment/share/pid_assignment/docs/PidConfig-usage.dox /home/adel/IN3140/crust/devel/share/pid_assignment/docs/PidConfig-usage.dox
